@@ -1,0 +1,117 @@
+body,
+html {
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  overflow: auto;
+  color: white;
+}
+
+#fixedHeader {
+  background-color: #ffcc00;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#fixedHeader h1 {
+  color: black;
+  margin-left: 10px;
+  font-size: 2.2rem;
+  display: inline-block;
+  font-weight: 700;
+}
+
+#fixedHeader .registerButton {
+  align-self: center;
+  margin-right: 20px;
+  color: black;
+  border-color: black;
+}
+
+.registerButton {
+  color: white;
+  height: 20px;
+  padding: 10px;
+  text-decoration: none;
+  border: 2px solid white;
+}
+
+#content {
+  margin-top: 90px;
+  padding-top: 30px;
+  padding-left: 30px;
+  background: #e0b400;
+}
+
+#description {
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#description a {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+#schedule {
+  margin-top: 40px;
+}
+
+#schedule h1 {
+  font-weight: 600;
+}
+
+.event {
+  background-color: black;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.eventDate {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#speakers h1 {
+  font-weight: 600;
+}
+
+#speakersLeft,
+#speakersRight {
+  background-color: black;
+  padding: 10px;
+}
+
+#speakersList {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+#free {
+  font-weight: 700;
+}
+
+#footer {
+  padding-bottom: 50px;
+}
+
+#footer h1 {
+  font-weight: 600;
+}
+
+.organizer {
+  background-color: black;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 15px;
+}
