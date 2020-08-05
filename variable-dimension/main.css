@@ -1,0 +1,61 @@
+body {
+  font-family: "Recursive", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 17px;
+}
+
+#header {
+  background-color: red;
+  color: white;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+#header h1 {
+  margin: 0;
+}
+
+#article {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Breakpoint at 600px width to emcompass most mobile devices smaller than tablets
+*/
+@media only screen and (max-width: 600px) {
+  /*    Gets rid of padding on the html and body and sets the width 100%
+   On mobile screen space is limited so I wanted to fill out the page with this breakpoint
+ */
+  html,
+  body {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+  }
+
+  /* Adds white space to the sides of content to give it some breathing space*/
+  #article {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Default font size a little too big on mobile
+  Changing the size on devices smaller than 375px width fits more content on the page so the user doesn't have to scroll as much
+*/
+@media only screen and (max-width: 375px) {
+  #article {
+    font-size: 15px;
+  }
+}
