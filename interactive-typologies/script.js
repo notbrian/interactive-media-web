@@ -87,7 +87,7 @@ function spawnFood() {
     {
       isStatic: true,
       render: {
-        fillStyle: "#00ff44",
+        fillStyle: "#ffea00",
       },
     }
   );
