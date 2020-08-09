@@ -8,6 +8,7 @@ body {
   overflow: auto;
   padding-left: 20px;
   padding-right: 20px;
+  /* Max width for bigger screens, reduces reading time if the text isn't spanning from side to side */
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
