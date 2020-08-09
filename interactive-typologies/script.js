@@ -168,3 +168,7 @@ function addCursor() {
     })
   );
 }
+
+setTimeout(() => {
+  document.querySelector("#instructions").hidden = true;
+}, 5000);
