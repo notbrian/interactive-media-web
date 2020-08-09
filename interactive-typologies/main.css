@@ -1,3 +1,8 @@
+@font-face {
+  font-family: ArcadeClassic;
+  src: url(arcadeclassic/ARCADECLASSIC.TTF);
+}
+
 html {
   cursor: none;
 }
@@ -6,4 +11,14 @@ html,
 body {
   margin: 0;
   overflow: hidden;
+}
+
+#score {
+  font-size: 90px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  margin-top: 20px;
+  font-family: ArcadeClassic;
 }

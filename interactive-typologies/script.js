@@ -40,7 +40,7 @@ window.addEventListener("resize", function () {
 // add bodies
 var cursors = Body.nextGroup(false);
 
-var ropeA = Composites.stack(window.innerWidth / 2, 100, 2, 1, 0, 0, function (
+var ropeA = Composites.stack(window.innerWidth / 2, 100, 1, 1, 0, 0, function (
   x,
   y
 ) {
@@ -48,7 +48,7 @@ var ropeA = Composites.stack(window.innerWidth / 2, 100, 2, 1, 0, 0, function (
     collisionFilter: { group: cursors },
     render: {
       sprite: {
-        texture: "./cursor.png",
+        texture: "./cursor-active.png",
         xScale: 0.1,
         yScale: 0.1,
       },
@@ -87,7 +87,7 @@ function spawnFood() {
     {
       isStatic: true,
       render: {
-        strokeColor: "#FFFFFF",
+        fillStyle: "#00ff44",
       },
     }
   );
@@ -97,24 +97,38 @@ function spawnFood() {
 
 spawnFood();
 
+let score = 1;
+const scoreElem = document.querySelector("#score");
+
 Events.on(engine, "collisionStart", function (event) {
   var pairs = event.pairs;
   for (var i = 0, j = pairs.length; i != j; ++i) {
     var pair = pairs[i];
 
-    if (pair.bodyA === food) {
+    if (
+      (pair.bodyA === food) &
+      (pair.bodyB === ropeA.bodies[ropeA.bodies.length - 1])
+    ) {
       Composite.remove(world, food);
       spawnFood();
       addCursor();
-    } else if (pair.bodyB === food) {
+      score++;
+      scoreElem.innerHTML = score;
+    } else if (
+      (pair.bodyB === food) &
+      (pair.bodyA === ropeA.bodies[ropeA.bodies.length - 1])
+    ) {
       Composite.remove(world, food);
       spawnFood();
       addCursor();
+      score++;
+      scoreElem.innerHTML = score;
     }
   }
 });
 
 function addCursor() {
+  ropeA.bodies[ropeA.bodies.length - 1].render.sprite.texture = "./cursor.png";
   Composite.add(
     ropeA,
     Bodies.rectangle(
@@ -126,7 +140,7 @@ function addCursor() {
         collisionFilter: { group: cursors },
         render: {
           sprite: {
-            texture: "./cursor.png",
+            texture: "./cursor-active.png",
             xScale: 0.1,
             yScale: 0.1,
           },
