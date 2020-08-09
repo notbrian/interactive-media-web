@@ -3,14 +3,11 @@
   src: url(arcadeclassic/ARCADECLASSIC.TTF);
 }
 
-html {
-  cursor: none;
-}
-
 html,
 body {
   margin: 0;
   overflow: hidden;
+  cursor: none;
 }
 
 #score {
