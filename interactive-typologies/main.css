@@ -25,7 +25,8 @@ body {
 }
 
 #instructions {
-  font-size: 25px;
+  width: 60%;
+  font-size: 28px;
   position: absolute;
   top: 50%;
   left: 50%;

@@ -40,11 +40,24 @@ window.addEventListener("resize", function () {
 // add bodies
 var cursors = Body.nextGroup(false);
 
-var ropeA = Composites.stack(window.innerWidth / 2, 100, 1, 1, 0, 0, function (
-  x,
-  y
-) {
-  return Bodies.rectangle(x, y, 40, 20, {
+// var ropeA = Composites.stack(0, 0, 1, 1, 0, 0, function (x, y) {
+//   return Bodies.rectangle(x, y, 40, 20, {
+//     collisionFilter: { group: cursors },
+//     render: {
+//       sprite: {
+//         texture: "./cursor-active.png",
+//         xScale: 0.1,
+//         yScale: 0.1,
+//       },
+//     },
+//   });
+// });
+
+let ropeA = Composite.create();
+
+Composite.add(
+  ropeA,
+  Bodies.rectangle(window.innerWidth / 2, 300, 20, 40, {
     collisionFilter: { group: cursors },
     render: {
       sprite: {
@@ -53,13 +66,12 @@ var ropeA = Composites.stack(window.innerWidth / 2, 100, 1, 1, 0, 0, function (
         yScale: 0.1,
       },
     },
-  });
-});
-
-Composites.chain(ropeA, 0.5, 0, -0.5, 0, {
-  length: 0,
-  render: { visible: false },
-});
+  })
+);
+// Composites.chain(ropeA, 0.5, 0, -0.5, 0, {
+//   length: 0,
+//   render: { visible: false },
+// });
 
 World.add(world, ropeA);
 
@@ -70,6 +82,10 @@ Events.on(engine, "afterUpdate", function () {
     x: (mouse.position.x - ropeA.bodies[0].position.x) * 0.3,
     y: (mouse.position.y - ropeA.bodies[0].position.y) * 0.3,
   });
+  // Body.setVelocity(ropeA.bodies[0], {
+  //   x: (300 - ropeA.bodies[0].position.x) * 0.3,
+  //   y: (200 - ropeA.bodies[0].position.y) * 0.3,
+  // });
 });
 // run the engine
 Engine.run(engine);
@@ -82,12 +98,17 @@ function spawnFood() {
   food = Bodies.rectangle(
     Math.random() * window.innerWidth,
     Math.random() * window.innerHeight,
-    40,
-    40,
+    50,
+    70,
     {
       isStatic: true,
       render: {
-        fillStyle: "#ffea00",
+        sprite: {
+          texture: "./milk.png",
+          xScale: 1.5,
+          yScale: 1.5,
+        },
+        // visible: true,
       },
     }
   );
@@ -126,16 +147,17 @@ Events.on(engine, "collisionStart", function (event) {
     }
   }
 });
-
+setInterval(addCursor, 2000);
 function addCursor() {
-  ropeA.bodies[ropeA.bodies.length - 1].render.sprite.texture = "./cursor.png";
+  ropeA.bodies[ropeA.bodies.length - 1].render.sprite.texture = "./bone.png";
+
   Composite.add(
     ropeA,
     Bodies.rectangle(
-      ropeA.bodies[ropeA.bodies.length - 1].position.x + 30,
-      ropeA.bodies[ropeA.bodies.length - 1].position.y + 30,
-      40,
+      ropeA.bodies[ropeA.bodies.length - 1].position.x,
+      ropeA.bodies[ropeA.bodies.length - 1].position.y,
       20,
+      40,
       {
         collisionFilter: { group: cursors },
         render: {
@@ -144,6 +166,7 @@ function addCursor() {
             xScale: 0.1,
             yScale: 0.1,
           },
+          visible: true,
         },
       }
     )
@@ -155,14 +178,14 @@ function addCursor() {
       bodyA: ropeA.bodies[ropeA.bodies.length - 2],
       bodyB: ropeA.bodies[ropeA.bodies.length - 1],
       pointA: {
-        x: 20,
-        y: 0,
+        x: 0,
+        y: 20,
       },
       pointB: {
-        x: -20,
-        y: 0,
+        x: 0,
+        y: -20,
       },
-      length: 0,
+      length: 1,
 
       render: { visible: false },
     })
