@@ -147,7 +147,6 @@ Events.on(engine, "collisionStart", function (event) {
     }
   }
 });
-setInterval(addCursor, 2000);
 function addCursor() {
   ropeA.bodies[ropeA.bodies.length - 1].render.sprite.texture = "./bone.png";
 
