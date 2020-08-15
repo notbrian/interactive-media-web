@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The World Yesterday/Today/Tomorrow</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="header">
+      <h1 id="title">The World Yesterday/Today/Tomorrow</h1>
+    </div>
+    <div id="main">
+      <div class="trendsDiv">
+        <h1 id="date">August 13th, 2020</h1>
+        <p class="noData">
+          Unfortunately theres no data for this day in the past.
+        </p>
+      </div>
+      <div class="trendsDiv" id="today">
+        <h1 id="date">August 14th, 2020</h1>
+        <!-- <div class="trend">
+          <p>1. Barcelona</p>
+          <a href="http://twitter.com/search?q=Barcelona">Link to trend</a>
+        </div> -->
+      </div>
+      <div class="trendsDiv">
+        <h1 id="date">August 15th, 2020</h1>
+        <p class="noData">No data for this day yet, check tomorrow!</p>
+      </div>
+
+      <!-- TODO: Add cool slider effect to scroll between days -->
+      <!-- TODO: Figure out a way to load trends from a .JSON file -->
+      <!-- TODO: Setup a automated server to add new trends everyday -->
+      <!-- <div id="slider">
+        <img src="ruler.png" />
+      </div> -->
+      <!-- <div id="controls">
+        <button class="dayButton" id="backButton">Back</button>
+        <button class="dayButton id="forwardButotn">Forward</button>
+      </div> -->
+    </div>
+    <p id="scrollInstruction">
+      Horizontal scroll to view history of trending stories on Twitter
+    </p>
+    <script type="text/javascript" src="loadTweets.js"></script>
+
+    <script src="main.js"></script>
+    <script
+      src="https://wwworkshop.org/wwwidget.js"
+      data-color="#0000ff"
+      data-link-type="random"
+      async
+      defer
+    ></script>
+  </body>
+</html>

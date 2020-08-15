@@ -1,0 +1,109 @@
+html,
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  background-color: rgba(29, 161, 242, 1);
+  overflow-x: auto;
+}
+
+#header {
+  margin-top: 0px;
+  text-align: center;
+  font-size: 14px;
+  background-color: white;
+  color: rgba(29, 161, 242, 1);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-weight: 700;
+}
+
+#title {
+  margin: 0;
+}
+
+#main {
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.trendsDiv {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 15px;
+  padding-top: 1px;
+  color: black;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 90%;
+  height: 460px;
+  padding-bottom: 20px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: normal;
+}
+
+#date {
+  font-size: 25px;
+  margin-top: 15px;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+.trend {
+  margin-top: 10px;
+  border-top: 1px solid grey;
+  padding-top: 0px;
+  padding-left: 10px;
+}
+
+.trend p {
+  font-weight: 700;
+}
+
+#slider {
+  position: fixed;
+  bottom: 5px;
+  width: 100%;
+}
+
+#slider img {
+  height: 40px;
+}
+
+#controls {
+  margin-top: 20px;
+
+  text-align: center;
+}
+
+.dayButton {
+  font-weight: 700;
+  font-size: 20px;
+  background-color: white;
+  border: none;
+  color: black;
+}
+
+.noData {
+  font-size: 22px;
+  text-align: center;
+  font-weight: 300;
+}
+
+#scrollInstruction {
+  text-align: center;
+}
+
+@media only screen and (min-width: 550px) {
+  .trendsDiv {
+    max-width: 300px;
+  }
+}
