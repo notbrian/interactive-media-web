@@ -1,6 +1,6 @@
 // Make an array with only the first 5 trends
 const trends = data[0].trends.slice(0, 5);
-const today = document.querySelector("#today");
+const today = document.querySelector("#trends-active");
 
 // Populates the today div with trends
 for (let i = 0; i < trends.length; i++) {
@@ -27,3 +27,76 @@ for (let i = 0; i < trends.length; i++) {
 
 const mainDiv = document.querySelector("#main");
 mainDiv.scrollLeft = mainDiv.scrollWidth / 3;
+
+// Code to setup gallery
+
+let galleryElements = [];
+let galleryIndex = 1;
+let galleryIndexMax;
+
+// Sets up variables for gallery
+
+function setupGallery() {
+  const galleryChildren = document.querySelector("#main").children;
+  for (let index = 0; index < galleryChildren.length; index++) {
+    galleryElements.push(galleryChildren[index]);
+  }
+  galleryIndexMax = galleryChildren.length - 1;
+}
+
+setupGallery();
+
+// Function that animates the gallery
+
+function animateGallery() {
+  for (let index = 0; index < galleryElements.length; index++) {
+    // Logic flow to set correct classes on elements
+    if (index === galleryIndex - 1) {
+      galleryElements[index].id = "trends-offLeft";
+    }
+
+    if (index === galleryIndex) {
+      galleryElements[index].id = "trends-active";
+    }
+
+    if (index === galleryIndex + 1) {
+      galleryElements[index].id = "trends-offRight";
+    }
+  }
+
+  // Fades buttons when you're at the end of the gallery
+
+  if (galleryIndex === galleryIndexMax) {
+    document
+      .querySelector(".galleryButton-right")
+      .classList.add("galleryButton-faded");
+  } else {
+    document
+      .querySelector(".galleryButton-right")
+      .classList.remove("galleryButton-faded");
+  }
+
+  if (galleryIndex == 0) {
+    document
+      .querySelector(".galleryButton-left")
+      .classList.add("galleryButton-faded");
+  } else {
+    document
+      .querySelector(".galleryButton-left")
+      .classList.remove("galleryButton-faded");
+  }
+}
+
+// Button functions to animate the gallery
+
+function moveLeft() {
+  if (galleryIndex >= galleryIndexMax) return;
+  galleryIndex++;
+  animateGallery();
+}
+
+function moveRight() {
+  if (galleryIndex <= 0) return;
+  galleryIndex--;
+  animateGallery();
+}

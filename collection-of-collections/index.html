@@ -16,20 +16,20 @@
       <h1 id="title">The World Yesterday/Today/Tomorrow</h1>
     </div>
     <div id="main">
-      <div class="trendsDiv">
+      <div class="trendsDiv" id="trends-offLeft">
         <h1 id="date">August 13th, 2020</h1>
         <p class="noData">
           Unfortunately theres no data for this day in the past.
         </p>
       </div>
-      <div class="trendsDiv" id="today">
+      <div class="trendsDiv" id="trends-active">
         <h1 id="date">August 14th, 2020</h1>
         <!-- <div class="trend">
           <p>1. Barcelona</p>
           <a href="http://twitter.com/search?q=Barcelona">Link to trend</a>
         </div> -->
       </div>
-      <div class="trendsDiv">
+      <div class="trendsDiv" id="trends-offRight">
         <h1 id="date">August 15th, 2020</h1>
         <p class="noData">No data for this day yet, check tomorrow!</p>
       </div>
@@ -45,9 +45,15 @@
         <button class="dayButton id="forwardButotn">Forward</button>
       </div> -->
     </div>
-    <p id="scrollInstruction">
+    <a href="#" onclick="moveRight()">
+      <img src="arrow.png" alt="Gallery Button" class="galleryButton-left" />
+    </a>
+    <a href="#" onclick="moveLeft()">
+      <img src="arrow.png" alt="Gallery Button" class="galleryButton-right" />
+    </a>
+    <!-- <p id="scrollInstruction">
       Horizontal scroll to view history of trending stories on Twitter
-    </p>
+    </p> -->
     <script type="text/javascript" src="loadTweets.js"></script>
 
     <script src="main.js"></script>

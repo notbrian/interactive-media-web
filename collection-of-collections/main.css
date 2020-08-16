@@ -29,27 +29,74 @@ body {
 }
 
 #main {
-  white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
 }
 
 .trendsDiv {
-  margin-top: 20px;
   background-color: white;
   border-radius: 15px;
-  padding-top: 1px;
   color: black;
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 90%;
-  height: 460px;
-  padding-bottom: 20px;
+  width: 300px;
+  height: 490px;
   display: inline-block;
   overflow: hidden;
   white-space: normal;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 25%;
+  margin: auto;
+  transition: transform 1.25s;
+  z-index: 1;
 }
 
+#trends-offLeft {
+  transform: translate(-100vw, 0%);
+}
+
+#trends-onLeft {
+  transform: translate(-50vw, 0%);
+}
+
+#trends-active {
+  transform: translate(0vw, 0vh);
+}
+
+#trends-onRight {
+  transform: translate(40vw, 0%);
+}
+
+#trends-offRight {
+  transform: translate(100vw, 0%);
+}
+
+.galleryButton-right {
+  top: 90%;
+  position: fixed;
+  left: 100px;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+  transition: opacity 0.75s;
+  height: 45px;
+}
+
+.galleryButton-left {
+  top: 90%;
+  position: fixed;
+  left: 0;
+  right: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  transform: rotate(180deg);
+  z-index: 2;
+  transition: opacity 0.75s;
+  height: 45px;
+}
+
+.galleryButton-faded {
+  opacity: 0.2;
+}
 #date {
   font-size: 25px;
   margin-top: 15px;
@@ -102,8 +149,17 @@ body {
   text-align: center;
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (max-width: 550px) {
   .trendsDiv {
-    max-width: 300px;
+    top: 20%;
+    height: 440px;
+  }
+
+  #date {
+    font-size: 20px;
+  }
+
+  .trend p {
+    margin-top: 10px;
   }
 }
