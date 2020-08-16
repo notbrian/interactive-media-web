@@ -2,7 +2,7 @@
 const trends = data[0].trends.slice(0, 5);
 const today = document.querySelector("#trends-active");
 
-// Populates the today div with trends
+// Populates the active div with trends
 for (let i = 0; i < trends.length; i++) {
   const trendData = trends[i];
   //   const div = document.createElement("div");
